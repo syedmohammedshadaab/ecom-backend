@@ -25,6 +25,9 @@ public class PService {
 	public List<Perfume> getPerfumeName(String name){
 		return perfumeRepository.findByNameContainingIgnoreCase(name);
 	}
+	public Optional<Perfume> getPerfumeById(int id){
+		return perfumeRepository.findById(id);
+	}
 	
 	
 }

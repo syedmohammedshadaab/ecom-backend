@@ -28,4 +28,8 @@ public class CartService {
         existing.setQuantity(updatedItem.getQuantity());
         return cartRepository.save(existing);
    }
+   public void clearCart(int uid) {
+	   List<Cart> items = cartRepository.findByUid(uid);
+	   cartRepository.deleteAll(items);
+   }
 }
