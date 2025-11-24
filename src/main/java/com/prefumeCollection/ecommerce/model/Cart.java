@@ -21,6 +21,13 @@ public class Cart {
     private double price;
     private String imageurl;
     private int quantity;
+    private String prodtype;
+	public String getProdtype() {
+		return prodtype;
+	}
+	public void setProdtype(String prodtype) {
+		this.prodtype = prodtype;
+	}
 	public int getQuantity() {
 		return quantity;
 	}
@@ -76,7 +83,7 @@ public class Cart {
 		this.imageurl = imageurl;
 	}
 	public Cart(int cartid, int uid, int id, String name, String description, String gender, double price,
-			String imageurl, int quantity) {
+			String imageurl, int quantity, String prodtype) {
 		super();
 		this.cartid = cartid;
 		this.uid = uid;
@@ -87,6 +94,7 @@ public class Cart {
 		this.price = price;
 		this.imageurl = imageurl;
 		this.quantity = quantity;
+		this.prodtype = prodtype;
 	}
 
    public Cart() {}

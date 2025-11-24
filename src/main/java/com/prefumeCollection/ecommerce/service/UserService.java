@@ -22,11 +22,9 @@ public class UserService {
         user.setPassword(hashedPassword);
         return userRepository.save(user);
     }
-
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
-
     public User getUser(String email, String rawPassword) {
         User user = userRepository.findByEmail(email);
         if (user != null && passwordEncoder.matches(rawPassword, user.getPassword())) {

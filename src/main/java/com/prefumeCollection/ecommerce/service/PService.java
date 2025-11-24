@@ -28,6 +28,4 @@ public class PService {
 	public Optional<Perfume> getPerfumeById(int id){
 		return perfumeRepository.findById(id);
 	}
-	
-	
 }

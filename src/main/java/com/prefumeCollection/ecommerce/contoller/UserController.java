@@ -16,7 +16,8 @@ import com.prefumeCollection.ecommerce.repository.CartRepository;
 import com.prefumeCollection.ecommerce.service.CartService;
 import com.prefumeCollection.ecommerce.service.UserService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://192.168.43.27:4200")
+//@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -28,7 +29,6 @@ public class UserController {
 	CartService cartService;
 	
 	@PostMapping("/postuser")
-	
 	public ResponseEntity<?> addUser(@RequestBody User user) {
 	    // Check if user with this email already exists
 	    User existingUser = userService.findByEmail(user.getEmail());
@@ -62,8 +62,5 @@ public class UserController {
 	        error.put("error", "Invalid email or password!");
 	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
 	    }
-	}
-
-	
-	 
+	}	 
 }

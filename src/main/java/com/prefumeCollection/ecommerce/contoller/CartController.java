@@ -22,7 +22,7 @@ import com.prefumeCollection.ecommerce.repository.CartRepository;
 import com.prefumeCollection.ecommerce.service.CartService;
 import com.prefumeCollection.ecommerce.service.PService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://192.168.43.27:4200")
 @RequestMapping("/cart")
 @RestController
 public class CartController {
@@ -61,7 +61,6 @@ public class CartController {
 
         return ResponseEntity.ok(response);
     }
-    
     @PutMapping("/putcart/{cartId}")
     public ResponseEntity<Cart> updateCartItem(@PathVariable int cartId, @RequestBody Cart cart) {
         Cart updated = cartService.updateCartItem(cartId, cart);

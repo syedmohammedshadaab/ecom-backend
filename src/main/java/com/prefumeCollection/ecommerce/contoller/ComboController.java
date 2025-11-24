@@ -1,7 +1,6 @@
 package com.prefumeCollection.ecommerce.contoller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,32 +11,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.prefumeCollection.ecommerce.model.Combo;
 import com.prefumeCollection.ecommerce.model.Perfume;
-import com.prefumeCollection.ecommerce.service.PService;
+import com.prefumeCollection.ecommerce.service.ComboService;
 
 @CrossOrigin(origins = "http://192.168.43.27:4200")
 @RestController
-@RequestMapping("/perfume")
-public class PController {
+@RequestMapping("/combo")
+public class ComboController {
 
 	@Autowired 
-	private PService pService;
+	private ComboService comboService;
 	
-	@GetMapping("/getallperfume")
-	public List<Perfume> getAllPerfume(){
-		return pService.getAllPerfume();
+	@GetMapping("/getallcombo")
+	public List<Combo> getAllPerfume(){
+		return comboService.getAllCombo();
 	}
-	@GetMapping("/getperfume/{gender}")
-	public List<Perfume> getPerfumeGender(@PathVariable String gender) {
-		return pService.getPerfumeGender(gender);
+	
+	@GetMapping("/getcombo/{gender}")
+	public List<Combo> getComboGender(@PathVariable String gender) {
+		return comboService.getComboGender(gender);
 	}
-	@GetMapping("/getperfumename/")
-	public List<Perfume> getPerfumeName(@RequestParam String name){
-		return pService.getPerfumeName(name);
+	@GetMapping("/getcomboname/")
+	public List<Combo> getComboName(@RequestParam String name){
+		return comboService.getComboName(name);
 	}
-	@GetMapping("/getperfumebyid/{id}")
-	public ResponseEntity<Perfume> getPerfumeById(@PathVariable int id){
-		return pService.getPerfumeById(id)
+	@GetMapping("/getcombobyid/{cid}")
+	public ResponseEntity<Combo> getPerfumeById(@PathVariable int cid){
+		return comboService.getComboById(cid)
 				.map(ResponseEntity::ok)              // If found → 200 OK
 	            .orElseGet(() -> ResponseEntity.notFound().build());  // If not → 404 Not Found
 	}
