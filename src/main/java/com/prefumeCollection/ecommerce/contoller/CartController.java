@@ -22,7 +22,8 @@ import com.prefumeCollection.ecommerce.repository.CartRepository;
 import com.prefumeCollection.ecommerce.service.CartService;
 import com.prefumeCollection.ecommerce.service.PService;
 
-@CrossOrigin(origins = "http://192.168.43.27:4200")
+//@CrossOrigin(origins = "http://192.168.43.27:4200")
+@CrossOrigin(origins = "*")
 @RequestMapping("/cart")
 @RestController
 public class CartController {
@@ -39,7 +40,7 @@ public class CartController {
     @PostMapping("/addtocart")
     public ResponseEntity<?> addToCart(@RequestBody Cart cart) {
         try {
-            System.out.println("🛒 Received cart: " + cart);
+//            System.out.println("🛒 Received cart: " + cart);
             Cart savedCart = cartRepo.save(cart);
             return ResponseEntity.ok(savedCart);
         } catch (Exception e) {

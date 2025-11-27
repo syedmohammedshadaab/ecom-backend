@@ -15,7 +15,8 @@ import com.prefumeCollection.ecommerce.model.Combo;
 import com.prefumeCollection.ecommerce.model.Perfume;
 import com.prefumeCollection.ecommerce.service.ComboService;
 
-@CrossOrigin(origins = "http://192.168.43.27:4200")
+//@CrossOrigin(origins = "http://192.168.43.27:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/combo")
 public class ComboController {

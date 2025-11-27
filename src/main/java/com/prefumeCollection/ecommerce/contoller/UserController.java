@@ -16,8 +16,8 @@ import com.prefumeCollection.ecommerce.repository.CartRepository;
 import com.prefumeCollection.ecommerce.service.CartService;
 import com.prefumeCollection.ecommerce.service.UserService;
 
-@CrossOrigin(origins = "http://192.168.43.27:4200")
-//@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "http://192.168.43.27:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/user")
 public class UserController {
